@@ -5,9 +5,7 @@ import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 public class City {
-	
-    @NotNull
-    @Size(min=2, max=50)
+
     private String name;
     
     public String getName() {
@@ -19,7 +17,7 @@ public class City {
     }
     
     public String toString() {
-    		return "Person(Name: "+this.name+")";
+    		return "City(Name: "+this.name+")";
     }
 
 }
