@@ -25,7 +25,7 @@ public class DBInitializeConfig {
 			statement.executeUpdate(
 					"CREATE TABLE City(" +
 					"id INTEGER Primary key, " +
-					"name varchar(30) not null,"+ 
+					"name varchar(30) not null"+ 
 					")" 
 					);
 			statement.executeUpdate(

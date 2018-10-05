@@ -1,7 +1,5 @@
 package com.weather.service;
 
-import javax.xml.ws.WebServiceContext;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,6 +24,19 @@ public class WeatherServiceImpl implements WeatherService {
 			model.setId(city.getId());
 	    }
 	    return model;
+	}
+	
+	@Override
+	public UserCityModel createCity(CityModel cityModel){
+	    City newCity=new City();
+	    if (cityModel !=null) {
+	    	newCity.setName(cityModel.getName());
+	    }    
+	    City savedCity = cityDao.save(newCity);
+	    UserCityModel savedUserCityModel=new UserCityModel();
+	    savedUserCityModel.setName(savedCity.getName());
+	    savedUserCityModel.setId(savedCity.getId());	    
+	    return savedUserCityModel;
 	}
 
 }

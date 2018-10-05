@@ -25,5 +25,9 @@ public class UserCityModel {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	public String toString(){
+		return ("City has name: "+this.name+" and id:"+this.id);
+	}
 
 }

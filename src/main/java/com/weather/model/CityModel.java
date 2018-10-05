@@ -1,5 +1,7 @@
 package com.weather.model;
 
+import org.springframework.core.style.ToStringCreator;
+
 public class CityModel {
 	
 	private String name;	
@@ -23,5 +25,11 @@ public class CityModel {
 	
 	public void setName(String name){
 		this.name = name;
+	}
+	
+	public String toString(){
+		return ("City has name: "+this.name+" and id:"+this.id);
+		
+		
 	}
 }
