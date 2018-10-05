@@ -10,7 +10,9 @@ public interface WeatherService {
 
 		public UserCityModel getCity(CityModel cityModel);
 
-		UserCityModel createCity(CityModel cityModel);
+		public UserCityModel createCity(UserCityModel userCityModel);
+
+		public CityModel convertModel(UserCityModel userCityModel);
 
 
 

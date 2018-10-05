@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.weather.entity.City;
 import com.weather.model.CityModel;
+import com.weather.model.UserCityModel;
 import com.weather.service.WeatherService;
 
 @Controller
@@ -45,12 +46,12 @@ public class WebController {
       	return "success";
     }
     
+    //Currently working on this
     @GetMapping(value="/create/city={cityName}", produces="text/plain")
     public String createCity(Model model){
-    	CityModel cityModel = new CityModel();
-      	cityModel.setName("delhi");
-	
-      	System.out.println(weatherService.getCity(cityModel).toString());
+    	UserCityModel userCityModel = new UserCityModel();
+      	userCityModel.setName("delhi");
+      	weatherService.createCity(userCityModel);
       	
       	return "success";
     }

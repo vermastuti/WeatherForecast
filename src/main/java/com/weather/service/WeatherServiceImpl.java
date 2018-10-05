@@ -27,16 +27,27 @@ public class WeatherServiceImpl implements WeatherService {
 	}
 	
 	@Override
-	public UserCityModel createCity(CityModel cityModel){
-	    City newCity=new City();
-	    if (cityModel !=null) {
-	    	newCity.setName(cityModel.getName());
-	    }    
-	    City savedCity = cityDao.save(newCity);
+	public UserCityModel createCity(UserCityModel userCityModel){
+	    City newCity=new City();    
+	    CityModel cityModel = convertModel(userCityModel);	
+	    if (cityModel != null) {
+			newCity.setName(cityModel.getName());
+		}
+		City savedCity = cityDao.save(newCity);
 	    UserCityModel savedUserCityModel=new UserCityModel();
 	    savedUserCityModel.setName(savedCity.getName());
 	    savedUserCityModel.setId(savedCity.getId());	    
 	    return savedUserCityModel;
+	}
+	
+	@Override
+	public CityModel convertModel(UserCityModel userCityModel){
+		CityModel cityModel = new CityModel();
+		if (userCityModel != null) {
+			cityModel.setName(userCityModel.getName());
+			cityModel.setId(userCityModel.getId());
+		}
+		return cityModel;
 	}
 
 }
